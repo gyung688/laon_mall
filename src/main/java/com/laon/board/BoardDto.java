@@ -1,4 +1,4 @@
-package com.laon.model;
+package com.laon.board;
 
 import java.util.Date;
 
