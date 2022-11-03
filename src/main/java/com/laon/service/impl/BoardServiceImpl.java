@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.laon.mapper.BoardMapper;
+import com.laon.mapper.BoardDao;
 import com.laon.model.BoardDto;
 import com.laon.service.BoardService;
 
@@ -13,11 +13,11 @@ import com.laon.service.BoardService;
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
-	BoardMapper boardMapper;
+	BoardDao boardDao;
 	
 	@Override
 	public List<BoardDto> selectBoardList() throws Exception {
-		return boardMapper.selectBoardList();
+		return boardDao.selectBoardList();
 	}
 
 	

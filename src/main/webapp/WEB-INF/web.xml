@@ -4,17 +4,26 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<!-- root-context에 등록되는 빈들은 모든 컨텍스트에서 사용할 수 있다. -->
+	<!-- service, dao 등 웹 환경에 독립적인 빈들을 담아둔다 -->
+	<!-- 서로 다른 servlet-context에서 공유해야 하는 빈들을 등록해놓고 사용할 수 있다. -->
+	<!-- servlet-context 내 빈들은 이용 불가 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!-- ContextLoaderListener을 이용하여  contextConfigLocation에 있는 root-context.xml을 불러온다 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<!-- Processes application requests -->
+	<!-- 클라이언트 요청이 발생하면 <servlet> 안의 설정들이 실행되면서 servlet-context.xml을 불러옴과 동시에 root-context.xml을 불러온다. 이 떄 DispatcherServlet을 실행시킨다 -->
+	<!-- servlet-context에 등록되는 빈들은 해당 컨텍스트에서만 사용 가능 -->
+	<!-- DispatcherServlet이 직접 사용하는 컨트롤러를 포함한 웹 관련 빈을 등록하는데 사용 -->
+	<!-- 독자적인 컨텍스트들을 가지며, root-context 내 빈 사용이 가능하다. -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

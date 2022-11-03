@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class BoardDto {
 
-	private int boardNo;
-	private int cateNo;
-	private String title;
-	private String content;
-	private String regId;
-	private Date regDt;
-	private String updateId;
-	private Date updateDt;
-	private String delYn;
+	private int 	boardNo;
+	private int 	cateNo;
+	private String 	title;
+	private String 	content;
+	private String 	regId;
+	private Date 	regDt;
+	private String 	updateId;
+	private Date 	updateDt;
+	private String 	delYn;
 	public int getBoardNo() {
 		return boardNo;
 	}

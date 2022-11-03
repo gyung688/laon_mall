@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.laon.model.BoardDto;
 
-public interface BoardMapper {
+public interface BoardDao {
 	// xml 파일명과 일치해야 xml까지 연결이 된다.
 	public List<BoardDto> selectBoardList();
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.laon.mapper.BoardDao">
+
+	<select id="selectBoardList" resultType="com.laon.model.BoardDto">
+		SELECT
+			  BOARD_NO 	AS boardNo
+			, CATE_NO 	AS cateNo 
+			, TITLE 	AS title
+			, CONTENT 	AS content
+			, REG_ID 	AS regId
+			, REG_DT 	AS regDt
+			, UPDATE_ID AS updateId
+			, UPDATE_DT AS updateDt
+			, DEL_YN 	AS delYn
+		FROM TB_BOARD
+	</select>
+</mapper>
